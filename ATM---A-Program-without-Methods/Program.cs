@@ -39,6 +39,7 @@ namespace ATM___A_Program_without_Methods
 
                             {
                                 case 1:
+                                    
                                     Console.WriteLine("The current balance is" + " " + accountAmount);
                                     loopContinue = true;
                                     break;
@@ -72,13 +73,9 @@ namespace ATM___A_Program_without_Methods
                                     break;
 
                                 case 4:
-                                    //Console.WriteLine("Thank you for using VU Bank ATM.");
+                                    Console.WriteLine("Thank you for using VU Bank ATM!");
                                     loopContinue = false;
                                     break;
-
-                                default:
-                                    throw new ArgumentOutOfRangeException("Please pick an option 1-4.");
-
                             }
 
                         }
@@ -93,7 +90,12 @@ namespace ATM___A_Program_without_Methods
             }
             catch (FormatException)
             {
-                Console.WriteLine("Invalid input.");
+                Console.WriteLine("Invalid input.Please enter numeric values.");
+                //result = 1;
+            }
+            catch (OverflowException)
+            {
+                Console.WriteLine("Unable to process. Please see your local bank to process a large transaction or select a different menu option.");
                 //result = 1;
             }
             catch (Exception exception)
@@ -101,12 +103,6 @@ namespace ATM___A_Program_without_Methods
                 Console.WriteLine($"Unexpected error:  {exception}");
                 //result = 1;
             }
-            finally
-            {
-                Console.WriteLine($"Thank you for choosing VU Bank ATM!");
-            }
-
-
         }
     }
 }
